@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind-JQuery Modal Plugin by Amit P Kumar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="tailwind-jquery-modal.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Demo Page -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Tailwind-JQuery Modal Plugin by <i class="fa-brands fa-github"></i> <a href="https://github.com/iamitpkumar" target="_blank">Amit P. Kumar</a></h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold mb-6 text-gray-700">Basic Modal Types</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <!-- Small Modal Trigger -->
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#smallModal">
+                        Small Modal
+                    </button>
+                    
+                    <!-- Medium Modal Trigger -->
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#mediumModal">
+                        Medium Modal
+                    </button>
+                    
+                    <!-- Large Modal Trigger -->
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#largeModal">
+                        Large Modal
+                    </button>
+                </div>
+                
+                <h2 class="text-2xl font-semibold mb-6 text-gray-700">Slide Modals</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <!-- Slide Left Modal Trigger -->
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#slideLeftModal">
+                        Slide from Left
+                    </button>
+                    
+                    <!-- Slide Right Modal Trigger -->
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#slideRightModal">
+                        Slide from Right
+                    </button>
+                </div>
+                
+                <h2 class="text-2xl font-semibold mb-6 text-gray-700">Media Modals</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Image Modal Trigger -->
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#imageModal">
+                        Image Modal
+                    </button>
+                    
+                    <!-- Video Modal Trigger -->
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-colors" 
+                            data-modal-target="#videoModal">
+                        Video Modal
+                    </button>
+                </div>
+                
+                <h2 class="text-2xl font-semibold mb-6 text-gray-700 mt-8">Programmatic Control</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button id="showModalProg" class="bg-gray-700 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Show Modal (JS)
+                    </button>
+                    <button id="hideModalProg" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Hide Modal (JS)
+                    </button>
+                    <button id="toggleModalProg" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Toggle Modal (JS)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Definitions (can be placed anywhere) -->
+    
+    <!-- Small Modal -->
+    <div id="smallModal" class="modal" data-size="small">
+        <h3 class="text-lg font-semibold mb-3">Small Modal</h3>
+        <p class="text-gray-600 mb-4">This is a compact modal perfect for simple confirmations.</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" data-modal-close>OK</button>
+    </div>
+    
+    <!-- Medium Modal -->
+    <div id="mediumModal" class="modal" data-size="medium">
+        <h3 class="text-xl font-semibold mb-4">Medium Modal</h3>
+        <p class="text-gray-600 mb-4">This medium-sized modal is perfect for forms and moderate content.</p>
+        <div class="bg-gray-50 p-4 rounded mb-4">
+            <label class="block text-sm font-medium mb-2">Sample Form Field</label>
+            <input type="text" class="w-full border rounded px-3 py-2" placeholder="Enter text...">
+        </div>
+        <div class="flex gap-2 justify-end">
+            <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" data-modal-close>Cancel</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" data-modal-close>Save</button>
+        </div>
+    </div>
+    
+    <!-- Large Modal -->
+    <div id="largeModal" class="modal" data-size="large">
+        <h3 class="text-2xl font-semibold mb-4">Large Modal</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h4 class="font-semibold mb-2">Left Column</h4>
+                <p class="text-gray-600 mb-3">Large modals are perfect for complex content and layouts.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li>Feature one</li>
+                    <li>Feature two</li>
+                    <li>Feature three</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-2">Right Column</h4>
+                <div class="bg-gray-100 p-3 rounded">
+                    <code class="text-sm">$('#largeModal').TailwindModal('show');</code>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-end mt-6">
+            <button class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600" data-modal-close>Close</button>
+        </div>
+    </div>
+    
+    <!-- Slide Left Modal -->
+    <div id="slideLeftModal" class="modal" data-type="slide-left" data-width="400">
+        <h3 class="text-xl font-semibold mb-4">Side Panel</h3>
+        <p class="text-gray-600 mb-6">This modal slides in from the left side. Perfect for navigation menus or side panels.</p>
+        
+        <div class="space-y-3 mb-6">
+            <a href="#" class="block p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
+                <div class="font-medium">Menu Item 1</div>
+                <div class="text-sm text-gray-600">Description for item 1</div>
+            </a>
+            <a href="#" class="block p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
+                <div class="font-medium">Menu Item 2</div>
+                <div class="text-sm text-gray-600">Description for item 2</div>
+            </a>
+            <a href="#" class="block p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors">
+                <div class="font-medium">Menu Item 3</div>
+                <div class="text-sm text-gray-600">Description for item 3</div>
+            </a>
+        </div>
+        
+        <button class="w-full bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600" data-modal-close>Close Panel</button>
+    </div>
+    
+    <!-- Slide Right Modal -->
+    <div id="slideRightModal" class="modal" data-type="slide-right" data-width="500">
+        <h3 class="text-xl font-semibold mb-4">Settings Panel</h3>
+        <p class="text-gray-600 mb-6">This modal slides in from the right. Great for settings panels or additional information.</p>
+        
+        <div class="space-y-4 mb-6">
+            <div>
+                <label class="flex items-center">
+                    <input type="checkbox" class="mr-2" checked>
+                    <span>Enable notifications</span>
+                </label>
+            </div>
+            <div>
+                <label class="flex items-center">
+                    <input type="checkbox" class="mr-2">
+                    <span>Dark mode</span>
+                </label>
+            </div>
+            <div>
+                <label class="block mb-2">Theme Color</label>
+                <select class="w-full border rounded px-3 py-2">
+                    <option>Blue</option>
+                    <option>Green</option>
+                    <option>Purple</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="flex gap-2">
+            <button class="flex-1 bg-gray-500 text-white py-2 rounded hover:bg-gray-600" data-modal-close>Cancel</button>
+            <button class="flex-1 bg-pink-500 text-white py-2 rounded hover:bg-pink-600" data-modal-close>Save</button>
+        </div>
+    </div>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" data-type="image" data-img="incerdible-kirkjufell-waterfall-in-iceland-gen-vagula.jpg" data-alt="Sample Image">
+    </div>
+    
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal" data-type="video" data-video="https://www.youtube.com/watch?v=KBYSpR8N6pc">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="tailwind-jquery-modal.js"></script>
+    <script>
+        // Initialize the plugin when document is ready
+        $(document).ready(function() {
+            // Initialize all modals
+            $('.modal').TailwindModal({
+                // Global options
+                background: '#ffffff',
+                textColor: '#374151',
+                overlayColor: 'rgba(0, 0, 0, 0.75)',
+                borderRadius: '0.5rem',
+                animation: true,
+                closeButton: true,
+                closeOnBackdrop: true,
+                closeOnEscape: true,
+                videoAutoplay: true,
+                imageZoom: true,
+                onOpen: function() {
+                    console.log('Modal opening...', this.element.attr('id'));
+                },
+                onShow: function() {
+                    console.log('Modal shown!', this.element.attr('id'));
+                },
+                onClose: function() {
+                    console.log('Modal closing...', this.element.attr('id'));
+                },
+                onHide: function() {
+                    console.log('Modal hidden!', this.element.attr('id'));
+                }
+            });
+            
+            // Programmatic control examples
+            $('#showModalProg').on('click', function() {
+                $('#smallModal').TailwindModal('show');
+            });
+            
+            $('#hideModalProg').on('click', function() {
+                $('#smallModal').TailwindModal('hide');
+            });
+            
+            $('#toggleModalProg').on('click', function() {
+                $('#smallModal').TailwindModal('toggle');
+            });
+        });
+    </script>
+</body>
+</html>

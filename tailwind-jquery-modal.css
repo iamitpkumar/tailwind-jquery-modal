@@ -1,0 +1,108 @@
+/* Modal Animations */
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px); 
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1) translateY(0); 
+    }
+}
+
+@keyframes slideInLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(-100%); 
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideInRight {
+    from { 
+        opacity: 0;
+        transform: translateX(100%); 
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideOutLeft {
+    from { 
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(-100%); 
+    }
+}
+
+@keyframes slideOutRight {
+    from { 
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(100%); 
+    }
+}
+
+.modal-backdrop {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-slide-left {
+    animation: slideInLeft 0.3s ease-out;
+}
+
+.modal-slide-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.modal-backdrop.fade-out {
+    animation: modalFadeIn 0.3s ease-out reverse;
+}
+
+.modal-content.fade-out {
+    animation: modalSlideIn 0.3s ease-out reverse;
+}
+
+.modal-slide-left.slide-out {
+    animation: slideOutLeft 0.3s ease-out;
+}
+
+.modal-slide-right.slide-out {
+    animation: slideOutRight 0.3s ease-out;
+}
+
+.modal-image {
+    transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+    transform: scale(1.02);
+}
+
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: block;
+}
